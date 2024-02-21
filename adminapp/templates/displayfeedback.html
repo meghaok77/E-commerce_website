@@ -1,0 +1,59 @@
+{% extends 'index1.html' %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title">Feedback</h3>
+
+          <div class="card-tools">
+            <div class="input-group input-group-sm" style="width: 150px;">
+              <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+
+              <div class="input-group-append">
+                <button type="submit" class="btn btn-default">
+                  <i class="fas fa-search"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body table-responsive p-0">
+          <table class="table table-hover text-nowrap">
+            <thead>
+              <tr>
+                <th>Subject</th>
+                <th>Message</th>
+                <th>User name</th>
+
+                
+              </tr>
+            </thead>
+            <tbody>
+              {% for i in n %}
+              <tr>
+                <td>{{i.subject}}</td>
+                <td>{{i.message}}</td>
+                <td>{{i.uid.first_name}}</td>
+
+              
+              </tr>
+              {% endfor %}
+         
+            </tbody>
+          </table>
+        </div>
+        <!-- /.card-body -->
+      </div>
+      <!-- /.card -->
+    </div>
+  </div>
+
+{% endblock %}
+
+{% block content1 %}
+
+{% endblock %}

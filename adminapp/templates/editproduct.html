@@ -1,0 +1,75 @@
+
+
+{% extends 'index1.html' %}
+
+{% block content %}
+{% for i in n %}
+<form method="post" action="{% url 'updateproduct' i.id %}" enctype="multipart/form-data"> 
+  {% csrf_token %}
+  <div class="card-body">
+  <div class="form-group">
+    <label for="procategory">Product Category</label>
+    <select name="pcategory" id="pcategory" class="form-control">
+        {% for i in c %}
+        {% if i.category_name == categoryid %}
+        <option value="{{ i.id }}" selected>{{ i.category_name }}</option>
+        {% else %}
+       
+        <option value="{{i.id}}">{{i.category_name}}</option>
+        {% endif %}
+        {% endfor %}
+       
+    </select>
+  </div>
+      
+        <div class="form-group">
+          <label for="proname">Product Name</label>
+          <input type="text" class="form-control" id="proname" placeholder="Product Name" name="pname" value="{{i.product_name}}">
+        </div>
+
+        
+        <div class="form-group">
+            <label for="proimage">Upload photo</label>
+            <div class="input-group">
+              <div class="custom-file">
+                <input type="file" class="custom-file-input" id="proimage" name="image" value="{{i.product_image}}">
+                <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+              </div>
+              <div class="input-group-append">
+                <span class="input-group-text">Upload</span>
+              </div>
+            </div>
+          </div>
+          
+
+            
+                <div class="form-group">
+                  <label for="prodescription">Product description</label>
+                  <input type="text" class="form-control" id="eprodescription" placeholder="Product Description" name="description" value="{{i.product_description}}">
+                </div>
+
+                
+                    <div class="form-group">
+                      <label for="proprice">Product Price</label>
+                      <input type="text" class="form-control" id="proprice" placeholder="Product Price" name="price" value="{{i.product_price}}">
+                    </div>
+
+
+      <div class="form-check">
+        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+        <label class="form-check-label" for="exampleCheck1">Check me out</label>
+      </div>
+    </div>
+    
+
+    <div class="card-footer">
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+  </form> 
+  {% endfor %}
+
+{% endblock %}
+
+
+{% block content1 %}
+{% endblock %}
