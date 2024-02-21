@@ -101,7 +101,7 @@ def userregister(request):
 def productdetails(request,proid):
     uid=request.session.get('uid')
     count=Cart.objects.filter(uid=uid).count()
-    print(proid)
+    
     n=product.objects.filter(id=proid)
     name=request.session.get('f_name')
     email=request.session.get('email')
@@ -110,7 +110,7 @@ def productdetails(request,proid):
     avgreview=Review.objects.filter(product_id=proid).aggregate(average=Avg('rating'))
     avg=0
     avg = float (avgreview['average'])
-    print(avg)
+   
     
 
     
