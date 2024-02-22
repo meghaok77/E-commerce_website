@@ -162,10 +162,15 @@ def displayfeedback(request):
     context={
         'n':n
     }
-    return render(request,"displayfeedback.html")
+    return render(request,"displayfeedback.html",context)
 
 def displayreview(request):
-    return render(request,"displayreview.html")
+    n=Review.objects.all()
+    context={
+        'n':n
+    }
+
+    return render(request,"displayreview.html",context)
 
 def displayorders(request):
     return render(request,"displayorders.html")

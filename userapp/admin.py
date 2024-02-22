@@ -8,7 +8,7 @@ admin.site.register(Review)
 admin.site.register(Carttotal1)
 admin.site.register(Paymentdetails)
 admin.site.register(Contact)
-
+admin.site.register(Averagerating)
 
 
 

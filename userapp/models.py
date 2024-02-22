@@ -41,6 +41,19 @@ class Paymentdetails(models.Model):
     state=models.CharField(max_length=50)
     zip=models.IntegerField()
     payment_mode=models.CharField(max_length=50)
+# class Orders(models.Model):
+#     uid=models.ForeignKey(userdetails,on_delete=models.CASCADE)
+#     product_id=models.ForeignKey(product,on_delete=models.CASCADE)
+#     cart_id=models.ForeignKey(Cart,on_delete=models.CASCADE)
+
+
+
+
+class Averagerating(models.Model):
+    uid=models.ForeignKey(userdetails,on_delete=models.CASCADE)
+    product_id=models.ForeignKey(product,on_delete=models.CASCADE)
+    avgrating=models.FloatField()
+
 
     
 

@@ -178,18 +178,22 @@
                     <div class="d-flex align-items-center justify-content-center mt-2">
                         <h5>{{i.product_price}}</h5><h6 class="text-muted ml-2"><del>$123.00</del></h6>
                     </div>
+                    {% for j in avgrating %}
+                    {% if j.product_id == i %}
 
-                        <!-- <div class="text-primary mb-2">
+                        <div class="text-primary mb-2">
                             <span>
-                            <i class="fa fa-star{% if avg < 0.5 %}-o{% elif avg >= 0.5 and avg < 1 %}-half-o {% endif %}" aria-hidden="true"></i>
-                            <i class="fa fa-star{% if avg < 1.5 %}-o{% elif avg >= 1.5 and avg < 2 %}-half-o {% endif %}" aria-hidden="true"></i>
-                            <i class="fa fa-star{% if avg < 2.5 %}-o{% elif avg >= 2.5 and avg < 3 %}-half-o {% endif %}" aria-hidden="true"></i>
-                            <i class="fa fa-star{% if avg < 3.5 %}-o{% elif avg >= 3.5 and avg < 4 %}-half-o {% endif %}" aria-hidden="true"></i>
-                            <i class="fa fa-star{% if avg < 4.5 %}-o{% elif avg >= 4.5 and avg < 5 %}-half-o {% endif %}" aria-hidden="true"></i>
+                            <i class="fa fa-star{% if j.avgrating < 0.5 %}-o{% elif j.avgrating >= 0.5 and j.avgrating < 1 %}-half-o {% endif %}" aria-hidden="true"></i>
+                            <i class="fa fa-star{% if j.avgrating < 1.5 %}-o{% elif j.avgrating >= 1.5 and j.avgrating < 2 %}-half-o {% endif %}" aria-hidden="true"></i>
+                            <i class="fa fa-star{% if j.avgrating < 2.5 %}-o{% elif j.avgrating >= 2.5 and j.avgrating < 3 %}-half-o {% endif %}" aria-hidden="true"></i>
+                            <i class="fa fa-star{% if j.avgrating < 3.5 %}-o{% elif j.avgrating >= 3.5 and j.avgrating < 4 %}-half-o {% endif %}" aria-hidden="true"></i>
+                            <i class="fa fa-star{% if j.avgrating < 4.5 %}-o{% elif j.avgrating >= 4.5 and j.avgrating < 5 %}-half-o {% endif %}" aria-hidden="true"></i>
 
                             </span>
                             
-                        </div> -->
+                        </div> 
+                        {% endif %}
+                        {% endfor %}
 
                     <a href="{% url  'productdetails' i.id %}" class="btn btn-primary">Buy Now</a>
                 </div>

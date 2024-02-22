@@ -18,16 +18,18 @@ def userindex1(request):
     return render(request,"userindex1.html",context)
 
 def usercategory(request):
-    print("---------------------------")
+    
     uid=request.session.get('uid')
     n=category.objects.all()
     n2=product.objects.all()
     count=Cart.objects.filter(uid=uid).count()
+    avgrating=Averagerating.objects.all()
     
     context={
         'n':n,
         'n2':n2,
-        'count':count
+        'count':count,
+        'avgrating':avgrating
     }
 
     return render(request,"usercategory.html",context)
@@ -110,6 +112,20 @@ def productdetails(request,proid):
     avgreview=Review.objects.filter(product_id=proid).aggregate(average=Avg('rating'))
     avg=0
     avg = float (avgreview['average'])
+
+    productid=product.objects.get(id=proid)
+    print(productid)
+    Averagerating.objects.create(
+        uid=userdetails.objects.get(id=uid),
+        product_id=product.objects.get(id=proid),
+        avgrating=avg
+    )
+    
+       
+
+
+
+    
    
     
 
